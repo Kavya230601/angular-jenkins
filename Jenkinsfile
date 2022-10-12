@@ -15,7 +15,7 @@ pipeline {
           
           stage('angular build'){
               steps{
-                sh "npm install"
+                sh "npm install --force"
                 sh "ng build"
               }
           }
