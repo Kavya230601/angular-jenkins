@@ -21,7 +21,7 @@ pipeline {
           stage('s3 upload'){
               steps{
               withAWS(region:"ca-central-1",credentials:"${aws_credentials}") {
-                  sh "cd dist && aws s3 sync . s3://test-angular-kavya" --delete
+                  sh "cd dist && aws s3 sync . s3://test-angular-kavya --delete"
               }
               }
           }
