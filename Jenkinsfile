@@ -15,7 +15,8 @@ pipeline {
           
           stage('angular build'){
               steps{
-                sh "npm install --force"
+                sh "npm install --legacy-peer-deps"
+                // sh "npm install --force"
                 sh "npm run ng build"
               }
           }
