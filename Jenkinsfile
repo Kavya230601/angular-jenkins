@@ -5,18 +5,24 @@ pipeline {
       
       stages {
           stage('Checkout Source'){
-              deleteDir()
-              checkout scm
+              steps{
+                deleteDir()
+                checkout scm
+              }
           }
           
           stage('angular build'){
-              sh "npm install"
-              sh "ng build"
+              steps{
+                sh "npm install"
+                sh "ng build"
+              }
           }
 
           stage('s3 upload'){
+              steps{
               withAWS(region:"ca-central-1",credentials:"${aws_credentials}") {
                   sh "cd dist && aws s3 sync . s3://test-angular-kavya" --delete
+              }
               }
           }
 
