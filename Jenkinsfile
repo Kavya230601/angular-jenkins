@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-      aws-credentials = "07898a7f-5320-4381-b86e-2d8885d6862f"}	
+      aws_credentials = "07898a7f-5320-4381-b86e-2d8885d6862f"}	
       
       stages {
           stage('Checkout Source'){
@@ -15,7 +15,7 @@ pipeline {
           }
 
           stage('s3 upload'){
-              withAWS(region:"ca-central-1",credentials:"${aws-credentials}") {
+              withAWS(region:"ca-central-1",credentials:"${aws_credentials}") {
                   sh "cd dist && aws s3 sync . s3://test-angular-kavya" --delete
               }
           }
