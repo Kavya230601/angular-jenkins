@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-      aws_credentials = "07898a7f-5320-4381-b86e-2d8885d6862f"}	
+      aws_credentials = "$your_credentials"}	
 
     tools {nodejs "nodejs"} 
       
